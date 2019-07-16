@@ -69,11 +69,7 @@ public class MainActivity extends Activity {
         Button initBtn = findViewById(R.id.init);
         Button openDoorBtn = findViewById(R.id.open_door);
         Button recordVideoBtn = findViewById(R.id.record_video);
-        Button releaseBtn = findViewById(R.id.release_btn);
-        Button testAlgorithm = findViewById(R.id.test_algorithm_btn);
         Button closeBtn = findViewById(R.id.close_door);
-        Button changeWightBtn = findViewById(R.id.change_weight);
-        Button changeWeightValueBtn = findViewById(R.id.change_weight_value);
 
         mFpsTv = findViewById(R.id.fps_textview);
 
@@ -140,39 +136,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        //释放所有资源，下一次的参数需要初始化
-        releaseBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                uvcJava.release();
-            }
-        });
-        //改变重量
-        changeWightBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                uvcJava.change_weight();
-            }
-        });
-        changeWeightValueBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                double[] weight = {1.0, 2.0, 3.0, 4.0, 5.0};
-//                uvcJava.change_weight_value(weight);
-            }
-        });
-        testAlgorithm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //先将文件拷贝到文件目录
-                //开启文件访问权限
-                try {
-                    jTools.copyAssertFile(MainActivity.this, "2019-06-27_09-44-22.mp4", "");
-                } catch (IOException e) {
-                    System.out.println(e);
-                }
-            }
-        });
+
     }
 
 //

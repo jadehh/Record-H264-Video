@@ -37,34 +37,10 @@
             android:text="录制视频" />
 
         <Button
-            android:id="@+id/release_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="释放所有资源" />
-
-        <Button
-            android:id="@+id/test_algorithm_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="算法测试" />
-
-        <Button
             android:id="@+id/close_door"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:text="关门" />
-
-        <Button
-            android:id="@+id/change_weight"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="改变重量" />
-
-        <Button
-            android:id="@+id/change_weight_value"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="重量改变的值" />
+            android:text="结束录制" />
 
         <TextView
             android:id="@+id/fps_textview"
