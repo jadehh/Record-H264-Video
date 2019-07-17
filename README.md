@@ -10,4 +10,4 @@
 
 ## apk下载地址
 
-[下载地址](https://pan.baidu.com/s/178148ozL5JXM8tMXCJZ4LA)
+[下载地址](https://pan.baidu.com/s/1-aGV1KOu5JjURFjYtKTSMw)
