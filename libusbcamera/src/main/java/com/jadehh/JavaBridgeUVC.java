@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.view.View;
 
 import com.example.jade.JadeLog;
+import com.example.jade.JadeToast;
 import com.example.jade.JadeTools;
 import com.jadehh.utils.PackFile;
 import com.jadehh.utils.VideoConfig;
@@ -64,6 +65,7 @@ public class JavaBridgeUVC {
         mUVCCameraView = (CameraViewInterface) mTextureView;
         mCameraHelper = new UVCCameraHelper();
         jTools = new JadeTools();
+        JadeToast.e(activity,"初始化成功");
     }
     
 
@@ -123,7 +125,7 @@ public class JavaBridgeUVC {
         }
 
         @Override
-        public void onConnectDev(UsbDevice device, boolean isConnected) {
+        public void onConnectDev(UsbDevice device, final boolean isConnected) {
             if (!isConnected) {
                 JadeLog.e(this, "fail to connect,please check resolution params");
             } else {
@@ -140,6 +142,7 @@ public class JavaBridgeUVC {
                         mCameraHelper.setExposureMode(1);
                         mCameraHelper.setExposureValue(exposureValue);
                         startMediaCodec();
+                        cameraListener.onConnectCamera(isConnected);
                     }
                 }).start();
             }
@@ -164,7 +167,6 @@ public class JavaBridgeUVC {
         JadeLog.e(this, "开启编码器");
         mCameraHelper.setRecordParmas(params);
         JadeLog.e( this,"完成编码器");
-        cameraListener.onConnectCamera(true);
     }
 
 
@@ -178,6 +180,7 @@ public class JavaBridgeUVC {
         }
         mCameraHelper.startRecording();
         mCameraHelper.changeWeightValue(weight_init);
+        JadeToast.e(activity,"开始录制视频");
     }
 
     //录制视频结束
@@ -189,6 +192,7 @@ public class JavaBridgeUVC {
             JadeLog.e(this,"zip  Path"+ videoConfig.zipPath);
             cameraListener.onDisconnectCamera(videoConfig.zipPath);
             startMediaCodec();
+            JadeToast.e(activity,"视频录制结束");
         }
     };
 

@@ -6,16 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <include layout="@layout/content_main" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+        <include layout="@layout/content_main" />
 
-
-    <com.serenegiant.usb.widget.UVCCameraTextureView
-        android:id="@+id/camera_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="60dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="72dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.serenegiant.usb.widget.UVCCameraTextureView
+                android:id="@+id/camera_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/timeView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/camera_view"
+                android:text="10:20"
+                android:textSize="30sp"
+                android:textColor="@color/RED" />
+        </RelativeLayout>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
